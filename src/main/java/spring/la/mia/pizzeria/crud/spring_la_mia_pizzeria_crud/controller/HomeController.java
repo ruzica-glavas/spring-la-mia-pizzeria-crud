@@ -1,18 +1,17 @@
 package spring.la.mia.pizzeria.crud.spring_la_mia_pizzeria_crud.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import org.springframework.ui.Model;
 
 @Controller
-@RequestMapping("/pizzas")
+@RequestMapping("/")
 
-
-public class PizzaController {
+public class HomeController {
     @GetMapping
-    public String index(Model model) {
-        return "pizzas/index";
+    public String home() {
+        return "home";
     }
+    
 }
