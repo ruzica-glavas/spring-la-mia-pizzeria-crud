@@ -5,7 +5,28 @@
 </head>
 <body>
     <nav th:replace="~{fragments/navbar :: navbar('pizzas')}"></nav>
-    <p class="text-bg-primary p-3">Ciao</p>
+    <!-- <p th:text="${pizzas}"></p> -->
+
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4" th:if="${pizzas.size()>0}">
+        <div class="col" th:each="pizza : ${pizzas}">
+            <div class="card h-100">
+                <img th:src="${pizza.photo}" class="card-img-top" alt="Foto pizza">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${pizza.name}">Nome</h5>
+                    <p class="card-text" th:text="${pizza.description}">Descrizione</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted" th:text="'€ ' + ${pizza.price}">Prezzo</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 th:text="Non ci sono pizze disponibili!" th:unless="${pizzas.size()>0}"></h1>
+    
+
 
     <div th:replace="~{fragments/resources :: scripts}"></div>
 </body>
