@@ -17,8 +17,11 @@
                     <p class="card-text" th:text="${pizza.description}">Descrizione</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted" th:text="'€ ' + ${pizza.price}">Prezzo</small>
+                    <small class="text-muted fw-bold" th:text="'€ ' + ${pizza.price}">Prezzo</small>
                 </div>
+                <div class="text-center my-2">
+                    <a class="btn btn-outline-primary" th:href="@{/pizzas/{id}(id=${pizza.id})}" role="button">Dettaglio Pizza</a>
+                </div>                  
             </div>
         </div>
     </div>
