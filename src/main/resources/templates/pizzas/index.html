@@ -7,7 +7,13 @@
     <nav th:replace="~{fragments/navbar :: navbar('pizzas')}"></nav>
     <!-- <p th:text="${pizzas}"></p> -->
 
+    
+
 <div class="container mt-4">
+    <form class="d-flex" role="search" method="get" th:action="@{/pizzas}">
+        <input class="form-control me-2" type="search" name="name" placeholder="Cerca la tua pizza" aria-label="Search" th:value="${param.name}"/>
+        <button class="btn btn-outline-primary" type="submit">Cerca</button>
+    </form>
     <div class="row row-cols-1 row-cols-md-3 g-4" th:if="${pizzas.size()>0}">
         <div class="col" th:each="pizza : ${pizzas}">
             <div class="card h-100">
@@ -26,6 +32,11 @@
         </div>
     </div>
 </div>
+
+<div class="text-center my-2">
+    <a class="btn btn-outline-danger" th:href="@{/pizzas}" role="button">Torna alla pagina iniziale</a>
+</div>   
+
 
 <h1 th:text="Non ci sono pizze disponibili!" th:unless="${pizzas.size()>0}"></h1>
     
