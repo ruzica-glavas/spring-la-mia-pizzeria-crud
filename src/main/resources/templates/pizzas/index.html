@@ -10,10 +10,16 @@
     
 
 <div class="container mt-4">
+
     <form class="d-flex" role="search" method="get" th:action="@{/pizzas}">
         <input class="form-control me-2" type="search" name="name" placeholder="Cerca la tua pizza" aria-label="Search" th:value="${name}"/>
         <button class="btn btn-outline-primary" type="submit">Cerca</button>
     </form>
+
+    <div class="text-center p-4 my-2">
+        <a class="btn btn-outline-primary" th:href="@{/pizzas/create}" role="button">Crea la tua nuova Pizza!</a>
+    </div> 
+
     <div class="row row-cols-1 row-cols-md-3 g-4" th:if="${pizzas.size()>0}">
         <div class="col" th:each="pizza : ${pizzas}">
             <div class="card h-100">

@@ -30,7 +30,7 @@ public class Pizza {
 
     @NotNull
     @Min(value=0, message = "Prize can not be negative")
-    private float price;
+    private Float price;
 
 
     public Integer getId() {
@@ -65,7 +65,7 @@ public class Pizza {
         this.photo = photo;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return this.price;
     }
 
