@@ -37,6 +37,7 @@ public class PizzaController {
         }
 
         model.addAttribute("pizzas", pizzas);
+        model.addAttribute("name", name);
         return "pizzas/index";
     }
     
