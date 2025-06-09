@@ -12,6 +12,12 @@
 
 </head>
 <body>
+
+    <th:block th:fragment="goBackButton">
+        <div class="text-center my-2">
+            <a class="btn btn-outline-danger" th:href="@{/pizzas}" role="button">Torna alla pagina iniziale</a>
+        </div>  
+    </th:block>
     
     <th:block th:fragment="scripts" >
         <script th:src="@{/webjars/bootstrap/5.3.6/js/bootstrap.bundle.min.js}"></script>
