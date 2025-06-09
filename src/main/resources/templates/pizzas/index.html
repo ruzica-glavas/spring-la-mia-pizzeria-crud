@@ -36,6 +36,11 @@
                     <div class="d-flex justify-content-center gap-2 my-2">
                         <a class="btn btn-outline-primary" th:href="@{/pizzas/{id}(id=${pizza.id})}" role="button">Dettaglio</a>
                         <a class="btn btn-outline-info" th:href="@{/pizzas/edit/{id}(id=${pizza.id})}" role="button">Edit</a>
+                        <form action="#" th:action="@{/pizzas/delete/{id}(id=${pizza.id})}" method="post">
+                            <button type="submit" class="btn btn-outline-danger">
+                                Elimina
+                            </button>
+                        </form>
                     </div>
                 </div>                  
             </div>
