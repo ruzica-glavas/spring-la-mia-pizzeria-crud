@@ -10,6 +10,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
+                <h1 class="mb-4">Modifica la tua pizza!</h1> 
                 <form id="pizza-form" th:object="${pizza}" th:action="@{/pizzas/edit/{id}(id=${pizza.id})}" method="post">
                     <div class="mb-2">
                         <label for="name" class="form-label">Nome della Pizza</label>
