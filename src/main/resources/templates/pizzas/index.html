@@ -36,11 +36,38 @@
                     <div class="d-flex justify-content-center gap-2 my-2">
                         <a class="btn btn-outline-primary" th:href="@{/pizzas/{id}(id=${pizza.id})}" role="button">Dettaglio</a>
                         <a class="btn btn-outline-info" th:href="@{/pizzas/edit/{id}(id=${pizza.id})}" role="button">Edit</a>
-                        <form action="#" th:action="@{/pizzas/delete/{id}(id=${pizza.id})}" method="post">
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" th:attr="data-bs-target='#delete-modal-' + ${pizza.id}">
+                                Elimina
+                        </button>
+
+                        <!-- Modal -->
+                         <div class="modal fade" th:id="'delete-modal-' + ${pizza.id}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Deleting [[*{name}]]</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body" th:text="'Sei sicuro di voler cancellare: ' + ${pizza.name} + ' con l\'id: ' + ${pizza.id} + '?'">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Annulla
+                                                </button>
+                                                <form th:action="@{/pizzas/delete/{id}(id=*{id})}" method="post" class="d-inline">
+                                                    <input type="submit" value="Cancella definitivamente" class="btn btn-outline-danger">
+                                                </form> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <!-- <form action="#" th:action="@{/pizzas/delete/{id}(id=${pizza.id})}" method="post">
                             <button type="submit" class="btn btn-outline-danger">
                                 Elimina
                             </button>
-                        </form>
+                        </form> -->
                     </div>
                 </div>                  
             </div>
